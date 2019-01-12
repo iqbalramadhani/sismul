@@ -1,0 +1,23 @@
+.thislider {
+    margin-top: -10%;
+}
+
+section {
+    /* min-height: 400px; */
+}
+
+.galeri {
+    min-height: 500px;
+}
+
+.galeri .card {
+    opacity: 0;
+    transition: .5s;
+    transform: translate(0, -40px);
+}
+
+.galeri .card.muncul {
+    opacity: 1;
+    transform: translate(0, 0);
+
+}
