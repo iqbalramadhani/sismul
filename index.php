@@ -1,3 +1,62 @@
+<?php 
+  $list = [
+    [
+      'judul'=>'Candi Mojong Menje',
+      'gambar'=>'https://sejarahlengkap.com/wp-content/uploads/2018/07/Candi-Bojong-Menje-300x194.jpg'
+    ],
+    [
+      'judul'=>'Candi Cangkuang',
+      'gambar'=>'https://sejarahlengkap.com/wp-content/uploads/2018/07/Candi-Cangkuang-300x199.jpg'
+    ],
+    [
+      'judul'=>'Candi Jiwa',
+      'gambar'=>'https://sejarahlengkap.com/wp-content/uploads/2018/07/Candi-Jiwa-300x157.jpg'
+    ],
+    [
+      'judul'=>'Candi Batujaya',
+      'gambar'=>'https://sejarahlengkap.com/wp-content/uploads/2018/07/Percandian-Batujaya-300x154.jpg'
+    ],
+    [
+      'judul'=>'Candi Cibuaya',
+      'gambar'=>'https://sejarahlengkap.com/wp-content/uploads/2018/07/Situs-Cibuaya-300x181.jpg'
+    ],
+    [
+      'judul'=>'Candi Karangkamulyan',
+      'gambar'=>'https://sejarahlengkap.com/wp-content/uploads/2018/07/Situs-Karangkamulyan-300x159.jpg'
+    ],
+    [
+      'judul'=>'Candi Gunung Padang',
+      'gambar'=>'https://sejarahlengkap.com/wp-content/uploads/2018/07/Situs-Gunung-Padang-300x164.jpg'
+    ],
+    [
+      'judul'=>'Candi Blandongan',
+      'gambar'=>'https://2.bp.blogspot.com/-YXu90h1u5Ko/WMhIkHmg2VI/AAAAAAAAUBI/9_yVloffHosXAsv52EzCpy1TY8svq6Z-QCLcB/s1600/blandongan.jpg'
+    ],
+    [
+      'judul'=>'Candi Tanggulun',
+      'gambar'=>'https://sejarahlengkap.com/wp-content/uploads/2018/07/Candi-Tanggulun-300x181.jpg'
+    ],
+    [
+      'judul'=>'Candi Serut',
+      'gambar'=>'https://sejarahlengkap.com/wp-content/uploads/2018/07/Candi-Serut-300x163.jpg'
+    ],
+    [
+      'judul'=>'Candi Sumur (Segaran IX)',
+      'gambar'=>'https://sejarahlengkap.com/wp-content/uploads/2018/07/Candi-Sumur-Segaran-IX-300x183.jpg'
+    ],
+    [
+      'judul'=>'Candi Thirdharma',
+      'gambar'=>'https://sejarahlengkap.com/wp-content/uploads/2018/07/Candi-Tridharma-300x137.jpg'
+    ],
+    [
+      'judul'=>'Candi Batu Kalde',
+      'gambar'=>'https://cdn.sindonews.net/webp/620/content/2018/12/21/29/1364863/misteri-batu-kalde-pangandaran-tempat-peristirahatan-raja-galuh-Mrh.webp'
+    ],
+  ];
+
+  // die(print_r($list[0]['gambar']));
+?>
+
 <!doctype html>
 <html lang="en" id="home">
 
@@ -10,7 +69,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
     crossorigin="anonymous">
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="asset/style.css" />
 
   <title>Candi Jawa Barat</title>
 </head>
@@ -114,19 +173,28 @@
   <section id="galeri" class="galeri">
     <div class="container">
       <h4 class="text-center pt-4 pb-3">Galeri</h4>
-      <div class="row p-3">
-        <div class="col-lg">
+      <div class="row">
+      <?php 
+        $no=0;
+        foreach($list as $l){
+      ?>
+      
+        <div class="col-lg-4 pb-5">
           <div class="card">
-            <a href="page.php?isi=0" class="card-link">
-              <img src="https://sejarahlengkap.com/wp-content/uploads/2018/07/Candi-Bojong-Menje-300x194.jpg" class="card-img-top"
-                height="200px" alt="...">
+            <a href="page.php?isi=<?php echo $no;?>" class="card-link">
+              <img src="<?php echo $l['gambar'];?>" class="card-img-top" height="200px" weight="200px" alt="<?php echo $l['judul'];?>"/>
               <div class="card-body">
-                <strong class="card-text text-dark">Candi Bojong Menje</strong>
+                <strong class="card-text text-dark"><?php echo $l['judul'];?></strong>
               </div>
             </a>
           </div>
         </div>
-        <div class="col-lg">
+      <?php
+      $no++;
+        }
+      ?>
+        
+        <!-- <div class="col-lg">
           <div class="card">
             <a href="page.php?isi=1" class="card-link">
               <img src="https://sejarahlengkap.com/wp-content/uploads/2018/07/Candi-Cangkuang-300x199.jpg" class="card-img-top"
@@ -147,7 +215,7 @@
               </div>
             </a>
           </div>
-        </div>
+        </div> -->
       </div>
   </section>
 
@@ -158,12 +226,12 @@
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="jquery.easing.1.3.js"></script>
+  <script src="asset/jquery.easing.1.3.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
     crossorigin="anonymous"></script>
-  <script src="script.js"></script>
+  <script src="asset/script.js"></script>
 
 </body>
 
